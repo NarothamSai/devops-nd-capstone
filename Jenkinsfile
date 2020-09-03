@@ -1,7 +1,7 @@
 pipeline {
      agent any
      stages {
-         stage('Build') {
+         stage('Print Building') {
               steps {
                   sh 'echo Building...'
               }
@@ -9,6 +9,7 @@ pipeline {
          stage('Lint HTML') {
               steps {
                   sh 'tidy -q -e *.html'
+                  sh 'hadolint Dockerfile'
               }
          }
          stage('Build Docker Image') {
