@@ -13,7 +13,7 @@ pipeline {
                     ls
                     tidy -q -e *.html
                     cd ..
-                    sudo hadolint Dockerfile
+                    docker run --rm -i hadolint/hadolint < Dockerfile
                   '''
               }
          }
