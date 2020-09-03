@@ -1,7 +1,7 @@
 pipeline {
      agent any
      stages {
-         stage('Print Building') {
+         stage('Build') {
               steps {
                   sh 'echo Building...'
               }
@@ -24,7 +24,7 @@ pipeline {
                   }
               }
          }
-        stage("Cleaning up") {
+        stage('Cleaning') {
               steps{
                     echo 'Cleaning up...'
                     sh "docker system prune"
