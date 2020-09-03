@@ -12,8 +12,6 @@ pipeline {
                     cd html
                     ls
                     tidy -q -e *.html
-                    cd ..
-                    docker run --rm -i hadolint/hadolint < Dockerfile
                   '''
               }
          }
