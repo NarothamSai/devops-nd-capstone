@@ -12,11 +12,13 @@ pipeline {
                     cd html
                     ls
                     tidy -q -e *.html
+                    cd ..
                   '''
               }
          }
          stage('Build Docker Image') {
               steps {
+                  sh 'ls'
                   sh 'docker build -t nginx-web-server:0.0.3 .'
               }
          }
