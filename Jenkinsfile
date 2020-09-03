@@ -13,7 +13,7 @@ pipeline {
                     ls
                     tidy -q -e *.html
                     cd ..
-                    hadolint Dockerfile
+                    sudo hadolint Dockerfile
                   '''
               }
          }
