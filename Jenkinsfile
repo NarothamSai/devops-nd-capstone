@@ -25,7 +25,11 @@ pipeline {
          stage('Push Docker Image') {
               steps {
                   withDockerRegistry([url: "", credentialsId: "docker-id"]) {
-                      sh ./upload_docker.sh
+                      sh '''
+                        dockerpath=narothamsai/nginx-web-server:0.0.3
+                        docker tag nginx-web-server:0.0.3 $dockerpath
+                        docker push $dockerpath
+                      '''
                   }
               }
          }
