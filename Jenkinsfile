@@ -8,7 +8,9 @@ pipeline {
          }
          stage('Lint HTML') {
               steps {
-                  sh 'tidy -q -e ./hmtl/*.html'
+                  sh 'cd html'
+                  sh 'tidy -q -e *.html'
+                  sh 'cd ..'
                   sh 'hadolint Dockerfile'
               }
          }
