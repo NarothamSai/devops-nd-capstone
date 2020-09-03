@@ -50,19 +50,19 @@
           ],
           "SubnetIds": [
             {
-              "Ref": "SubnetPublicAPSOUTH1A"
+              "Ref": "SubnetPublicAPSOUTH1C"
             },
             {
-              "Ref": "SubnetPublicAPSOUTH1C"
+              "Ref": "SubnetPublicAPSOUTH1A"
             },
             {
               "Ref": "SubnetPublicAPSOUTH1B"
             },
             {
-              "Ref": "SubnetPrivateAPSOUTH1A"
+              "Ref": "SubnetPrivateAPSOUTH1C"
             },
             {
-              "Ref": "SubnetPrivateAPSOUTH1C"
+              "Ref": "SubnetPrivateAPSOUTH1A"
             },
             {
               "Ref": "SubnetPrivateAPSOUTH1B"
@@ -157,7 +157,7 @@
           "Fn::GetAtt": ["NATIP", "AllocationId"]
         },
         "SubnetId": {
-          "Ref": "SubnetPublicAPSOUTH1A"
+          "Ref": "SubnetPublicAPSOUTH1C"
         },
         "Tags": [
           {
@@ -461,7 +461,7 @@
       "Type": "AWS::EC2::Subnet",
       "Properties": {
         "AvailabilityZone": "ap-south-1a",
-        "CidrBlock": "192.168.96.0/19",
+        "CidrBlock": "192.168.128.0/19",
         "Tags": [
           {
             "Key": "kubernetes.io/role/internal-elb",
@@ -505,7 +505,7 @@
       "Type": "AWS::EC2::Subnet",
       "Properties": {
         "AvailabilityZone": "ap-south-1c",
-        "CidrBlock": "192.168.128.0/19",
+        "CidrBlock": "192.168.96.0/19",
         "Tags": [
           {
             "Key": "kubernetes.io/role/internal-elb",
@@ -527,7 +527,7 @@
       "Type": "AWS::EC2::Subnet",
       "Properties": {
         "AvailabilityZone": "ap-south-1a",
-        "CidrBlock": "192.168.0.0/19",
+        "CidrBlock": "192.168.32.0/19",
         "MapPublicIpOnLaunch": true,
         "Tags": [
           {
@@ -573,7 +573,7 @@
       "Type": "AWS::EC2::Subnet",
       "Properties": {
         "AvailabilityZone": "ap-south-1c",
-        "CidrBlock": "192.168.32.0/19",
+        "CidrBlock": "192.168.0.0/19",
         "MapPublicIpOnLaunch": true,
         "Tags": [
           {
@@ -705,10 +705,10 @@
           ",",
           [
             {
-              "Ref": "SubnetPrivateAPSOUTH1A"
+              "Ref": "SubnetPrivateAPSOUTH1C"
             },
             {
-              "Ref": "SubnetPrivateAPSOUTH1C"
+              "Ref": "SubnetPrivateAPSOUTH1A"
             },
             {
               "Ref": "SubnetPrivateAPSOUTH1B"
@@ -728,10 +728,10 @@
           ",",
           [
             {
-              "Ref": "SubnetPublicAPSOUTH1A"
+              "Ref": "SubnetPublicAPSOUTH1C"
             },
             {
-              "Ref": "SubnetPublicAPSOUTH1C"
+              "Ref": "SubnetPublicAPSOUTH1A"
             },
             {
               "Ref": "SubnetPublicAPSOUTH1B"

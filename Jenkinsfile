@@ -38,7 +38,7 @@ pipeline {
                   echo 'Deploying to AWS...'
                   withAWS(credentials: 'aws-id', region: 'ap-south-1') {
                       sh "aws eks --region ap-south-1 update-kubeconfig --name nginx-web-server"
-                      sh "kubectl config use-context arn:aws:iam::177633364078:role/eksctl-nginx-web-server-cluster-ServiceRole-1F6EAYL04HE2M"
+                      sh "kubectl config use-context arn:aws:eks:ap-south-1:177633364078:cluster/nginx-web-server"
                       sh "kubectl set image deployments/nginx-web-server narothamsai/nginx-web-server"
                       sh "kubectl apply -f config-kub.yml"
                       sh "kubectl rollout status deployments/nginx-web-server"
