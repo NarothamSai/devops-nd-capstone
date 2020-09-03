@@ -21,7 +21,7 @@ spec:
         app: nginx-web-server
     spec:
       containers:
-        - image: narothamsai/nginx-web-server
+        - image: narothamsai/nginx-web-server:0.0.3
           imagePullPolicy: Always
           name: nginx-web-server
           ports:
