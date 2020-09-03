@@ -8,11 +8,13 @@ pipeline {
          }
          stage('Lint HTML') {
               steps {
-                  sh 'cd html'
-                  sh 'ls'
-                  sh 'tidy -q -e *.html'
-                  sh 'cd ..'
-                  sh 'hadolint Dockerfile'
+                  sh '''
+                    cd html
+                    ls
+                    tidy -q -e *.html
+                    cd ..
+                    hadolint Dockerfile
+                  '''
               }
          }
          stage('Build Docker Image') {
