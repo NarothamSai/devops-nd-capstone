@@ -39,13 +39,20 @@ pipeline {
                   withAWS(credentials: 'aws-id', region: 'ap-south-1') {
                       sh "aws eks --region ap-south-1 update-kubeconfig --name nginx-web-server"
                       sh "kubectl config use-context arn:aws:eks:ap-south-1:177633364078:cluster/nginx-web-server"
-                      sh "kubectl set image deployments/nginx-web-server narothamsai/nginx-web-server"
                       sh "kubectl apply -f config-kub.yml"
                       sh "kubectl rollout status deployments/nginx-web-server"
                       sh "kubectl get nodes"
                       sh "kubectl get deployment"
                       sh "kubectl get pod -o wide"
                       sh "kubectl get service/nginx-web-server"
+                  }
+              }
+        }
+        stage('Status EKS Deployment') {
+              steps{
+                  echo 'Deploying to AWS...'
+                  withAWS(credentials: 'aws-id', region: 'ap-south-1') {
+                      sh "kubectl rollout status deployments/nginx-web-server"
                   }
               }
         }
